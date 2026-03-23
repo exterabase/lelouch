@@ -1,0 +1,74 @@
+[
+  {
+    "id": "stella",
+    "name": "Stella",
+    "version": "2.4.1",
+    "description": "3D VRM anime assistant. Интерактивный персонаж прямо в Telegram с анимациями, настроением и частицами.",
+    "tags": ["UI", "3D", "VRM", "Assistant"],
+    "icon": "✦",
+    "color": "#e879f9",
+    "channel_url": "https://t.me/rei_plugins",
+    "download_url": "https://t.me/rei_plugins",
+    "status": "stable"
+  },
+  {
+    "id": "hook_inspector",
+    "name": "Hook Inspector",
+    "version": "12.0",
+    "description": "Developer tool для инспекции UI элементов. 482 ключа из Theme.java, иерархия классов по тапу.",
+    "tags": ["Dev", "Debug", "Theme"],
+    "icon": "⬡",
+    "color": "#38bdf8",
+    "channel_url": "https://t.me/rei_plugins",
+    "download_url": "https://t.me/rei_plugins",
+    "status": "stable"
+  },
+  {
+    "id": "rei_badge",
+    "name": "Rei Badge",
+    "version": "8.3",
+    "description": "Бейджи для каналов в ExteraGram. Donor, Dev и Channel бейджи с кастомным поведением при тапе.",
+    "tags": ["UI", "Badges", "Channels"],
+    "icon": "◈",
+    "color": "#e63946",
+    "channel_url": "https://t.me/rei_plugins",
+    "download_url": "https://t.me/rei_plugins",
+    "status": "stable"
+  },
+  {
+    "id": "pic_to_stories",
+    "name": "PicToStories",
+    "version": "3.1",
+    "description": "Разрезает фото/видео на части для Telegram Stories или Saved Messages. Поддержка сетки.",
+    "tags": ["Stories", "Media", "Grid"],
+    "icon": "◫",
+    "color": "#4ade80",
+    "channel_url": "https://t.me/rei_plugins",
+    "download_url": "https://t.me/rei_plugins",
+    "status": "stable"
+  },
+  {
+    "id": "math_notes",
+    "name": "Math Notes",
+    "version": "2.0",
+    "description": "Генерирует рукописные заметки по математике. Pillow + AI генерация, бумага в клетку, кастомные шрифты.",
+    "tags": ["AI", "Math", "Image"],
+    "icon": "∫",
+    "color": "#fbbf24",
+    "channel_url": "https://t.me/rei_plugins",
+    "download_url": "https://t.me/rei_plugins",
+    "status": "beta"
+  },
+  {
+    "id": "sidebar_custom",
+    "name": "Sidebar Custom",
+    "version": "1.5",
+    "description": "Кастомизация боковой панели ExteraGram. Ширина, радиус углов, прозрачность и визуальные эффекты.",
+    "tags": ["UI", "Sidebar", "Theme"],
+    "icon": "▤",
+    "color": "#a78bfa",
+    "channel_url": "https://t.me/rei_plugins",
+    "download_url": "https://t.me/rei_plugins",
+    "status": "stable"
+  }
+]
