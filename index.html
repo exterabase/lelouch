@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Стончик</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #0f0f0f;
+    }
+
+    .btn {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      border: none;
+      cursor: pointer;
+      background: #1db954;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 40px rgba(29, 185, 84, 0.5);
+      transition: transform 0.1s;
+      outline: none;
+    }
+
+    .btn:hover { background: #1ed760; box-shadow: 0 0 60px rgba(29,185,84,0.7); }
+    .btn:active { transform: scale(0.93); }
+
+    .btn.playing { animation: pulse 0.5s infinite alternate; }
+
+    @keyframes pulse {
+      from { box-shadow: 0 0 40px rgba(29,185,84,0.5); }
+      to   { box-shadow: 0 0 80px rgba(29,185,84,1); }
+    }
+
+    svg { width: 80px; height: 80px; fill: #fff; margin-left: 10px; }
+  </style>
+</head>
+<body>
+
+  <button class="btn" id="btn" onclick="play()">
+    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+  </button>
+
+  <audio id="audio" src="https://www.myinstants.com/media/sounds/stonchik.mp3"></audio>
+
+  <script>
+    const btn = document.getElementById('btn');
+    const audio = document.getElementById('audio');
+    audio.volume = 1;
+
+    function play() {
+      audio.currentTime = 0;
+      audio.play();
+      btn.classList.add('playing');
+    }
+
+    audio.addEventListener('ended', () => btn.classList.remove('playing'));
+  </script>
+
+</body>
+</html>
+
