@@ -3,68 +3,252 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Стончик</title>
+  <title>L.L</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700;900&family=Inter:wght@300&display=swap');
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #0f0f0f;
-    }
-
-    .btn {
-      width: 200px;
-      height: 200px;
-      border-radius: 50%;
-      border: none;
+      width: 100vw;
+      background: #06060e;
+      overflow: hidden;
       cursor: pointer;
-      background: #1db954;
+      user-select: none;
+      font-family: 'Cinzel', serif;
+    }
+
+    .wm-grid {
+      position: fixed;
+      inset: 0;
       display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      pointer-events: none;
+      transform: rotate(-20deg) scale(1.4);
+      transform-origin: center center;
+    }
+
+    .wm-row {
+      width: 100%;
+      display: flex;
+      gap: 32px;
+      padding: 18px 0;
+    }
+
+    .wm {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: rgba(168, 85, 247, 0.09);
+      white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    .blob {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(100px);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 1.2s;
+    }
+    .blob1 { width: 500px; height: 500px; background: #7c3aed; top: -150px; left: -150px; }
+    .blob2 { width: 400px; height: 400px; background: #db2777; bottom: -100px; right: -100px; }
+    .blob3 { width: 300px; height: 300px; background: #4f46e5; top: 40%; left: 50%; transform: translate(-50%,-50%); }
+    .blob.active { opacity: 0.22; }
+
+    .center {
+      position: fixed;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 0 40px rgba(29, 185, 84, 0.5);
-      transition: transform 0.1s;
-      outline: none;
+      gap: 20px;
+      pointer-events: none;
     }
 
-    .btn:hover { background: #1ed760; box-shadow: 0 0 60px rgba(29,185,84,0.7); }
-    .btn:active { transform: scale(0.93); }
-
-    .btn.playing { animation: pulse 0.5s infinite alternate; }
-
-    @keyframes pulse {
-      from { box-shadow: 0 0 40px rgba(29,185,84,0.5); }
-      to   { box-shadow: 0 0 80px rgba(29,185,84,1); }
+    .logo {
+      font-size: clamp(4rem, 15vw, 8rem);
+      font-weight: 900;
+      letter-spacing: 0.15em;
+      background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f97316 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+      transition: filter 0.3s;
     }
 
-    svg { width: 80px; height: 80px; fill: #fff; margin-left: 10px; }
+    .logo.playing {
+      animation: logopulse 1s ease-in-out infinite alternate;
+    }
+
+    @keyframes logopulse {
+      from { filter: drop-shadow(0 0 20px rgba(168,85,247,0.6)); }
+      to   { filter: drop-shadow(0 0 50px rgba(236,72,153,1)); }
+    }
+
+    .sub {
+      font-size: clamp(0.55rem, 2.5vw, 0.75rem);
+      letter-spacing: 0.5em;
+      color: rgba(255,255,255,0.15);
+      text-transform: uppercase;
+      font-weight: 400;
+    }
+
+    .sub.playing { color: rgba(255,255,255,0.35); }
+
+    .badge {
+      position: fixed;
+      top: 24px;
+      left: 28px;
+      font-size: 0.6rem;
+      letter-spacing: 0.3em;
+      color: rgba(255,255,255,0.12);
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
+    .ripple {
+      position: fixed;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(168,85,247,0.2), transparent 70%);
+      transform: scale(0);
+      animation: rippleOut 0.8s ease-out forwards;
+      pointer-events: none;
+    }
+    @keyframes rippleOut {
+      to { transform: scale(5); opacity: 0; }
+    }
+
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg, transparent, transparent 2px,
+        rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
+      );
+      pointer-events: none;
+    }
   </style>
 </head>
 <body>
 
-  <button class="btn" id="btn" onclick="play()">
-    <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-  </button>
+  <div class="blob blob1" id="b1"></div>
+  <div class="blob blob2" id="b2"></div>
+  <div class="blob blob3" id="b3"></div>
+  <div class="wm-grid" id="wmGrid"></div>
+  <div class="scanlines"></div>
 
-  <audio id="audio" src="https://www.myinstants.com/media/sounds/stonchik.mp3"></audio>
+  <div class="center">
+    <div class="logo" id="logo">L.L</div>
+    <div class="sub" id="sub">tap anywhere</div>
+  </div>
+
+  <div class="badge">All Hail Lelouch</div>
+
+  <audio id="audio" src="https://raw.githubusercontent.com/exterabase/lelouch/main/stonchik.mp3" crossorigin="anonymous" loop></audio>
 
   <script>
-    const btn = document.getElementById('btn');
     const audio = document.getElementById('audio');
-    audio.volume = 1;
+    const logo  = document.getElementById('logo');
+    const sub   = document.getElementById('sub');
+    const blobs = ['b1','b2','b3'].map(id => document.getElementById(id));
 
-    function play() {
-      audio.currentTime = 0;
-      audio.play();
-      btn.classList.add('playing');
+    // watermark grid
+    const grid = document.getElementById('wmGrid');
+    for (let row = 0; row < 20; row++) {
+      const div = document.createElement('div');
+      div.className = 'wm-row';
+      for (let col = 0; col < 12; col++) {
+        const span = document.createElement('span');
+        span.className = 'wm';
+        span.textContent = 'ALL HAIL LELOUCH';
+        div.appendChild(span);
+      }
+      grid.appendChild(div);
     }
 
-    audio.addEventListener('ended', () => btn.classList.remove('playing'));
+    // Web Audio chain
+    let ctx, initialized = false;
+
+    function initAudio() {
+      if (initialized) return;
+      initialized = true;
+
+      try {
+        ctx = new (window.AudioContext || window.webkitAudioContext)();
+
+        const source = ctx.createMediaElementSource(audio);
+
+        // 1. Pre-gain
+        const preGain = ctx.createGain();
+        preGain.gain.value = 20;
+
+        // 2. Compressor — мягче, без "underwater"
+        const comp = ctx.createDynamicsCompressor();
+        comp.threshold.value = -24;
+        comp.ratio.value     = 8;
+        comp.knee.value      = 6;
+        comp.attack.value    = 0.003;
+        comp.release.value   = 0.25;
+
+        // 3. Срезаем муть на низах
+        const lowCut = ctx.createBiquadFilter();
+        lowCut.type            = 'highpass';
+        lowCut.frequency.value = 80;
+
+        // 4. Верха — резкость и агрессия
+        const highShelf = ctx.createBiquadFilter();
+        highShelf.type            = 'highshelf';
+        highShelf.frequency.value = 4000;
+        highShelf.gain.value      = 15;
+
+        // 5. Post-gain
+        const postGain = ctx.createGain();
+        postGain.gain.value = 10;
+
+        // source → preGain → comp → lowCut → highShelf → postGain → out
+        source.connect(preGain);
+        preGain.connect(comp);
+        comp.connect(lowCut);
+        lowCut.connect(highShelf);
+        highShelf.connect(postGain);
+        postGain.connect(ctx.destination);
+
+      } catch (e) {
+        // CORS fallback — без Web Audio, просто volume max
+        console.warn('Web Audio API недоступен (CORS), fallback:', e.message);
+        audio.volume = 1;
+      }
+    }
+
+    function playSound() {
+      if (ctx && ctx.state === 'suspended') ctx.resume();
+      if (!audio.paused) return;
+      audio.play();
+      logo.classList.add('playing');
+      sub.classList.add('playing');
+      sub.textContent = 'ALL HAIL LELOUCH';
+      blobs.forEach(b => b.classList.add('active'));
+    }
+
+    document.addEventListener('click', (e) => {
+      initAudio();
+
+      const r = document.createElement('div');
+      r.className = 'ripple';
+      const size = Math.max(window.innerWidth, window.innerHeight) * 2;
+      r.style.cssText = `width:${size}px;height:${size}px;left:${e.clientX-size/2}px;top:${e.clientY-size/2}px`;
+      document.body.appendChild(r);
+      r.addEventListener('animationend', () => r.remove());
+
+      playSound();
+    });
   </script>
 
 </body>
 </html>
-
