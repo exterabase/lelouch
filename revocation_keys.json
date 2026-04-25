@@ -1,0 +1,706 @@
+{
+  "_comment": "УкрЗалізниця - активні ключі. Видали key щоб заблокувати юзера.",
+  "_updated": "2026-04-25",
+  "keys": {
+    "65WL-NZHP-Z23X-NEP6": {
+      "slot": "SLOT001",
+      "active": true,
+      "device_id": "SLOT001",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "327Z-5KFM-HGZW-SMIO": {
+      "slot": "SLOT002",
+      "active": true,
+      "device_id": "SLOT002",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "ZU4W-VPBS-V5OZ-NPKC": {
+      "slot": "SLOT003",
+      "active": true,
+      "device_id": "SLOT003",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "RTR2-2DHK-AYEN-QPWL": {
+      "slot": "SLOT004",
+      "active": true,
+      "device_id": "SLOT004",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "MVER-YLJU-3AGI-GR7B": {
+      "slot": "SLOT005",
+      "active": true,
+      "device_id": "SLOT005",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "O4OI-X7UO-PV5E-S6EE": {
+      "slot": "SLOT006",
+      "active": true,
+      "device_id": "SLOT006",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "26P3-CG5K-Z7XZ-DTNQ": {
+      "slot": "SLOT007",
+      "active": true,
+      "device_id": "SLOT007",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "GBKH-IXV7-NP6K-77I2": {
+      "slot": "SLOT008",
+      "active": true,
+      "device_id": "SLOT008",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "OSTK-34TR-6BXM-IOF2": {
+      "slot": "SLOT009",
+      "active": true,
+      "device_id": "SLOT009",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "SS2N-T24Z-OPU2-Q4VY": {
+      "slot": "SLOT010",
+      "active": true,
+      "device_id": "SLOT010",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "IDLW-6H33-6AO2-KK26": {
+      "slot": "SLOT011",
+      "active": true,
+      "device_id": "SLOT011",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "P75L-ZHEQ-DY35-5NSI": {
+      "slot": "SLOT012",
+      "active": true,
+      "device_id": "SLOT012",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "DA33-UTPY-PKLP-GEBW": {
+      "slot": "SLOT013",
+      "active": true,
+      "device_id": "SLOT013",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "6WKY-22WA-AI5O-YIOQ": {
+      "slot": "SLOT014",
+      "active": true,
+      "device_id": "SLOT014",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "7WM6-AYFQ-YS4A-NZZJ": {
+      "slot": "SLOT015",
+      "active": true,
+      "device_id": "SLOT015",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "J6RC-EGC6-M4UX-3IJW": {
+      "slot": "SLOT016",
+      "active": true,
+      "device_id": "SLOT016",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "7QJH-56HO-Y6ZA-3UW6": {
+      "slot": "SLOT017",
+      "active": true,
+      "device_id": "SLOT017",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "SZN2-LZEE-7UWG-FKDP": {
+      "slot": "SLOT018",
+      "active": true,
+      "device_id": "SLOT018",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "IGFJ-IUTF-OWMX-4XVS": {
+      "slot": "SLOT019",
+      "active": true,
+      "device_id": "SLOT019",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "D5UC-3J2E-4PO3-DNM6": {
+      "slot": "SLOT020",
+      "active": true,
+      "device_id": "SLOT020",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "73PG-LDJ7-BFY6-C4G6": {
+      "slot": "SLOT021",
+      "active": true,
+      "device_id": "SLOT021",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "JBMH-NZYS-XS5A-4LX4": {
+      "slot": "SLOT022",
+      "active": true,
+      "device_id": "SLOT022",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "DXGX-LK63-P7AN-GHBC": {
+      "slot": "SLOT023",
+      "active": true,
+      "device_id": "SLOT023",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "KEOI-KYH4-OT3M-EWPM": {
+      "slot": "SLOT024",
+      "active": true,
+      "device_id": "SLOT024",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "SNF4-EZHO-V3RA-QYD3": {
+      "slot": "SLOT025",
+      "active": true,
+      "device_id": "SLOT025",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "PEDS-KOAX-PIHZ-EHEZ": {
+      "slot": "SLOT026",
+      "active": true,
+      "device_id": "SLOT026",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "TVVK-WYTX-LVVK-IEQS": {
+      "slot": "SLOT027",
+      "active": true,
+      "device_id": "SLOT027",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "POII-VTHQ-HG6L-77HT": {
+      "slot": "SLOT028",
+      "active": true,
+      "device_id": "SLOT028",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "PK7H-YRXJ-JXBE-A6ZD": {
+      "slot": "SLOT029",
+      "active": true,
+      "device_id": "SLOT029",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "UM6D-ZOEB-LGE7-RHD5": {
+      "slot": "SLOT030",
+      "active": true,
+      "device_id": "SLOT030",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "QQY4-OPFB-WQFD-NO5X": {
+      "slot": "SLOT031",
+      "active": true,
+      "device_id": "SLOT031",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "L6QM-ROMJ-HC4R-LZDG": {
+      "slot": "SLOT032",
+      "active": true,
+      "device_id": "SLOT032",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "LVYA-Y3PN-HXAL-56N4": {
+      "slot": "SLOT033",
+      "active": true,
+      "device_id": "SLOT033",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "RDWR-EYS5-LGHH-DBCP": {
+      "slot": "SLOT034",
+      "active": true,
+      "device_id": "SLOT034",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "YIID-X37A-2UI6-THKS": {
+      "slot": "SLOT035",
+      "active": true,
+      "device_id": "SLOT035",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "343P-AENY-RF5L-ITEC": {
+      "slot": "SLOT036",
+      "active": true,
+      "device_id": "SLOT036",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "BMMQ-JGBB-6KEO-AWSE": {
+      "slot": "SLOT037",
+      "active": true,
+      "device_id": "SLOT037",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "3UUH-2UNN-WMEA-U4AT": {
+      "slot": "SLOT038",
+      "active": true,
+      "device_id": "SLOT038",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "PPCN-H6I7-IQYW-ORVF": {
+      "slot": "SLOT039",
+      "active": true,
+      "device_id": "SLOT039",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "FNM2-JWJW-3KPU-H2CT": {
+      "slot": "SLOT040",
+      "active": true,
+      "device_id": "SLOT040",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "5PEG-ISCD-WE6E-GVZY": {
+      "slot": "SLOT041",
+      "active": true,
+      "device_id": "SLOT041",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "UBOM-ISFR-ZAMZ-AY4O": {
+      "slot": "SLOT042",
+      "active": true,
+      "device_id": "SLOT042",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "4PVT-OW6M-YNOF-PYZY": {
+      "slot": "SLOT043",
+      "active": true,
+      "device_id": "SLOT043",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "PSWP-MQL4-RI4T-QOQ2": {
+      "slot": "SLOT044",
+      "active": true,
+      "device_id": "SLOT044",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "XF4K-6IGE-VSZE-CH2A": {
+      "slot": "SLOT045",
+      "active": true,
+      "device_id": "SLOT045",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "I5S5-GMX5-DZPU-EBLY": {
+      "slot": "SLOT046",
+      "active": true,
+      "device_id": "SLOT046",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "EA7E-RC5H-PKJJ-TRRD": {
+      "slot": "SLOT047",
+      "active": true,
+      "device_id": "SLOT047",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "277X-5JU6-STH5-Q4S2": {
+      "slot": "SLOT048",
+      "active": true,
+      "device_id": "SLOT048",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "SB5Q-RGQL-RECT-VUOF": {
+      "slot": "SLOT049",
+      "active": true,
+      "device_id": "SLOT049",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "GKTX-4YMZ-5WUD-CCTJ": {
+      "slot": "SLOT050",
+      "active": true,
+      "device_id": "SLOT050",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "IRX7-R5VI-MPTB-XCPT": {
+      "slot": "SLOT051",
+      "active": true,
+      "device_id": "SLOT051",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "QRFN-XSTU-K2JS-H37N": {
+      "slot": "SLOT052",
+      "active": true,
+      "device_id": "SLOT052",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "OYJS-I3TO-NIMJ-OLBB": {
+      "slot": "SLOT053",
+      "active": true,
+      "device_id": "SLOT053",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "LFIO-V6TK-E7UG-AJQS": {
+      "slot": "SLOT054",
+      "active": true,
+      "device_id": "SLOT054",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "JQ25-OMZU-QIUD-4U6N": {
+      "slot": "SLOT055",
+      "active": true,
+      "device_id": "SLOT055",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "VR3I-M2RR-MRPJ-CMED": {
+      "slot": "SLOT056",
+      "active": true,
+      "device_id": "SLOT056",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "LE2N-ODLW-RRXF-JT37": {
+      "slot": "SLOT057",
+      "active": true,
+      "device_id": "SLOT057",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "QDA3-3U2P-JDPR-BJ77": {
+      "slot": "SLOT058",
+      "active": true,
+      "device_id": "SLOT058",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "AIVT-76V7-6VN5-VHU5": {
+      "slot": "SLOT059",
+      "active": true,
+      "device_id": "SLOT059",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "XCIP-YFNV-TK7G-ADY4": {
+      "slot": "SLOT060",
+      "active": true,
+      "device_id": "SLOT060",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "4SJH-IB5B-HYAK-2L2K": {
+      "slot": "SLOT061",
+      "active": true,
+      "device_id": "SLOT061",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "IQJS-JMDP-CHXD-XQIK": {
+      "slot": "SLOT062",
+      "active": true,
+      "device_id": "SLOT062",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "U2TR-4CBU-HVUJ-CV3A": {
+      "slot": "SLOT063",
+      "active": true,
+      "device_id": "SLOT063",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "WNA5-3AK3-NRSU-ATBX": {
+      "slot": "SLOT064",
+      "active": true,
+      "device_id": "SLOT064",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "4N62-4NDC-IZKT-NYRD": {
+      "slot": "SLOT065",
+      "active": true,
+      "device_id": "SLOT065",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "MJUQ-FFUO-6PSJ-NLLB": {
+      "slot": "SLOT066",
+      "active": true,
+      "device_id": "SLOT066",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "O4VZ-MXSY-3QAR-4ULI": {
+      "slot": "SLOT067",
+      "active": true,
+      "device_id": "SLOT067",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "U26A-DCIA-VPKJ-MJ2V": {
+      "slot": "SLOT068",
+      "active": true,
+      "device_id": "SLOT068",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "7JH3-4TE7-K5Y6-GP56": {
+      "slot": "SLOT069",
+      "active": true,
+      "device_id": "SLOT069",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "THAH-4PNL-GQKD-PRFH": {
+      "slot": "SLOT070",
+      "active": true,
+      "device_id": "SLOT070",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "E63B-GB5G-HVEK-OIFK": {
+      "slot": "SLOT071",
+      "active": true,
+      "device_id": "SLOT071",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "HT6L-7ZCI-MSD6-DDRK": {
+      "slot": "SLOT072",
+      "active": true,
+      "device_id": "SLOT072",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "DEHK-ILDD-GFKG-PDYS": {
+      "slot": "SLOT073",
+      "active": true,
+      "device_id": "SLOT073",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "3UBC-AZU4-FH6F-SI5O": {
+      "slot": "SLOT074",
+      "active": true,
+      "device_id": "SLOT074",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "5F2E-FCOO-A5RP-3G3J": {
+      "slot": "SLOT075",
+      "active": true,
+      "device_id": "SLOT075",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "C62C-GKST-OZ72-MJ77": {
+      "slot": "SLOT076",
+      "active": true,
+      "device_id": "SLOT076",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "7HLB-6E2V-XUEJ-LGH4": {
+      "slot": "SLOT077",
+      "active": true,
+      "device_id": "SLOT077",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "6YIA-ZANC-PNC6-F33V": {
+      "slot": "SLOT078",
+      "active": true,
+      "device_id": "SLOT078",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "WQ3B-SFES-XQ63-ET3X": {
+      "slot": "SLOT079",
+      "active": true,
+      "device_id": "SLOT079",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "7RS3-3VLG-2XAR-GAUH": {
+      "slot": "SLOT080",
+      "active": true,
+      "device_id": "SLOT080",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "VNEV-XUGH-US2P-DWLG": {
+      "slot": "SLOT081",
+      "active": true,
+      "device_id": "SLOT081",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "E6ZQ-2MCK-4X7H-2S5F": {
+      "slot": "SLOT082",
+      "active": true,
+      "device_id": "SLOT082",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "PGT2-WEHE-WIDR-AFZP": {
+      "slot": "SLOT083",
+      "active": true,
+      "device_id": "SLOT083",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "H6K4-YPUX-OQOD-WHBK": {
+      "slot": "SLOT084",
+      "active": true,
+      "device_id": "SLOT084",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "GRSV-3K4C-MDBB-AZXP": {
+      "slot": "SLOT085",
+      "active": true,
+      "device_id": "SLOT085",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "X7B5-4HB4-7KAG-NJMY": {
+      "slot": "SLOT086",
+      "active": true,
+      "device_id": "SLOT086",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "SOG5-JYU3-5MBG-NJAK": {
+      "slot": "SLOT087",
+      "active": true,
+      "device_id": "SLOT087",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "SQYY-OKAE-XJV6-YJPK": {
+      "slot": "SLOT088",
+      "active": true,
+      "device_id": "SLOT088",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "ZTEE-DERP-EY56-2PFJ": {
+      "slot": "SLOT089",
+      "active": true,
+      "device_id": "SLOT089",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "FW6L-6Z3D-2UDQ-2LD5": {
+      "slot": "SLOT090",
+      "active": true,
+      "device_id": "SLOT090",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "ORYP-JHGL-KCK6-CG44": {
+      "slot": "SLOT091",
+      "active": true,
+      "device_id": "SLOT091",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "P4XP-C6AP-DDXQ-Y4FL": {
+      "slot": "SLOT092",
+      "active": true,
+      "device_id": "SLOT092",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "UL4G-VN5W-GZB4-GLR3": {
+      "slot": "SLOT093",
+      "active": true,
+      "device_id": "SLOT093",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "K6JX-W4VZ-DM4M-IWX6": {
+      "slot": "SLOT094",
+      "active": true,
+      "device_id": "SLOT094",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "BV7L-BVA4-QSBJ-DB5T": {
+      "slot": "SLOT095",
+      "active": true,
+      "device_id": "SLOT095",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "IUBV-HA64-MT3A-OG7J": {
+      "slot": "SLOT096",
+      "active": true,
+      "device_id": "SLOT096",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "EHPY-2G7M-W4UO-K3YF": {
+      "slot": "SLOT097",
+      "active": true,
+      "device_id": "SLOT097",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "WPC4-JBWN-NPVW-BKR5": {
+      "slot": "SLOT098",
+      "active": true,
+      "device_id": "SLOT098",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "CBYP-VQOB-2HHA-UX5C": {
+      "slot": "SLOT099",
+      "active": true,
+      "device_id": "SLOT099",
+      "issued": "2026-04-25",
+      "note": ""
+    },
+    "AJQG-7JEP-FE36-RAKE": {
+      "slot": "SLOT100",
+      "active": true,
+      "device_id": "SLOT100",
+      "issued": "2026-04-25",
+      "note": ""
+    }
+  }
+}
