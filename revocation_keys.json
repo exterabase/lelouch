@@ -701,6 +701,13 @@
       "device_id": "SLOT100",
       "issued": "2026-04-25",
       "note": ""
+    },
+    "7AL4-PORC-RR4E-OAZN": {
+      "slot": "SLOT101",
+      "active": true,
+      "device_id": "7f6a3c0c8d931523",
+      "issued": "TODAY",
+      "note": ""
     }
   }
 }
