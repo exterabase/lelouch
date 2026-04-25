@@ -708,6 +708,12 @@
       "device_id": "7f6a3c0c8d931523",
       "issued": "TODAY",
       "note": ""
+    },
+    "UT7I-QBUQ-IF5S-XBT4": {
+      "active": true,
+      "device_id": "57e00ec453d1276f",
+      "issued": "TODAY",
+      "note": "ГОША"
     }
   }
 }
