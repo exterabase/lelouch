@@ -716,7 +716,7 @@
       "note": "ГОША"
     },
     "7Q34-AEKB-JRCK-DYJD": {
-      "active": false,
+      "active": true,
       "device_id": "33b05dbe59d1c36a",
       "issued": "TODAY",
       "note": "Хуесос Антон"
@@ -726,6 +726,7 @@
       "device_id": "8b3e696644382b09",
       "issued": "TODAY",
       "note": "C.C"
+      
     }
   }
 }
