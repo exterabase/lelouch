@@ -123,56 +123,226 @@ body{
 
 /* ══ TICKETS SCREEN ══ */
 #pg-tickets{background:#07091a}
-.th{background:#0d1038;padding:20px 20px 20px;padding-top:calc(54px + env(safe-area-inset-top));display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.th h1{font-size:26px;font-weight:900}
-.th-dots{color:#fff;font-size:22px;cursor:pointer;background:none;border:none;letter-spacing:2px;font-family:'Manrope',sans-serif;line-height:1}
+.th{
+  background:#0d1438;
+  padding:14px 16px 14px;
+  padding-top:calc(48px + env(safe-area-inset-top));
+  flex-shrink:0;
+  display:flex;align-items:center;justify-content:space-between;
+}
+.th h1{font-size:24px;font-weight:900;color:#fff}
+.th-dots{
+  background:none;border:none;cursor:pointer;
+  color:#5a6d96;font-size:20px;line-height:1;padding:4px 6px;
+}
 
-.t-list{padding:14px 14px 90px}
+.t-list{padding:0 12px 90px}
 
-/* Date group label */
-.t-date-group{margin-bottom:6px}
-.t-date-label{font-size:17px;font-weight:800;color:#fff;padding:14px 4px 10px;display:block}
+.t-date-group{margin-bottom:2px}
+.t-date-label{font-size:18px;font-weight:900;color:#fff;padding:14px 2px 10px;display:block}
 
-/* Ticket card */
+/* ── Ticket card compact — matches screenshot exactly ── */
 .tcard{
-  background:#111929;border-radius:20px;padding:18px 18px 0;
-  margin-bottom:10px;border:none;overflow:hidden;
+  background:#111929;border-radius:16px;
+  margin-bottom:10px;overflow:hidden;cursor:pointer;
 }
-/* "Приміський" badge */
-.tc-type-badge{
-  display:inline-flex;align-items:center;gap:6px;
-  background:rgba(100,120,255,.18);color:#adb6ff;
-  font-size:12.5px;font-weight:700;
-  padding:5px 11px 5px 9px;border-radius:50px;margin-bottom:12px;
+.tc-top{padding:12px 14px 10px}
+/* Teal/blue "Приміський" badge */
+.tc-badge-type{
+  display:inline-flex;align-items:center;gap:5px;
+  background:#1c4a6e;color:#7dd3f7;
+  font-size:12px;font-weight:700;
+  padding:4px 12px 4px 8px;border-radius:50px;margin-bottom:10px;
 }
-.tc-type-badge svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.tc-badge-type svg{width:13px;height:13px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 /* Route */
-.tc-route{font-size:22px;font-weight:900;color:#fff;margin-bottom:14px;letter-spacing:-.3px}
-/* Time chips */
-.tc-times{display:flex;align-items:center;gap:8px;margin-bottom:16px;flex-wrap:wrap}
-.tc-time-chip{
+.tc-route-line{font-size:19px;font-weight:900;color:#fff;letter-spacing:-.2px;line-height:1.2}
+/* Time chips row */
+.tc-times{display:flex;align-items:center;gap:6px;margin-top:10px;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}
+.tc-times::-webkit-scrollbar{display:none}
+.tc-chip{
   background:#1e2a50;border-radius:50px;
-  padding:7px 14px;font-size:14px;font-weight:700;color:#fff;white-space:nowrap;
+  padding:6px 13px;font-size:13px;font-weight:700;color:#fff;
+  white-space:nowrap;flex-shrink:0;border:1.5px solid #2a3870;
 }
-.tc-schedule-btn{
-  margin-left:auto;background:#2a3568;border:none;border-radius:50px;
-  padding:7px 16px;font-size:13.5px;font-weight:700;color:#adb6ff;
-  cursor:pointer;font-family:'Manrope',sans-serif;white-space:nowrap;transition:background .15s;
+.tc-sched-btn{
+  margin-left:auto;background:#e8eaff;border-radius:50px;
+  padding:6px 13px;font-size:13px;font-weight:700;color:#1a1a4a;
+  border:none;cursor:pointer;font-family:'Manrope',sans-serif;
+  white-space:nowrap;flex-shrink:0;
 }
-.tc-schedule-btn:active{background:#3a4588}
 /* Divider */
-.tc-divider{height:1px;background:#1e2a48;margin:0 -18px}
-/* Passenger */
-.tc-passenger{font-size:14px;color:#8898bb;padding:13px 0;font-weight:500}
-/* Show button */
+.tc-div{height:1px;background:#1a2347}
+/* Bottom row */
+.tc-bottom{padding:10px 14px 0}
+.tc-ptype{font-size:13px;color:#8898bb;font-weight:500}
+/* "Показати квиток" big button */
 .tc-show-btn{
-  width:calc(100% + 36px);margin:0 -18px;
-  display:flex;align-items:center;justify-content:center;gap:10px;
-  background:#adb6ff;border:none;padding:18px;
-  font-size:16.5px;font-weight:800;color:#0d1038;
-  cursor:pointer;font-family:'Manrope',sans-serif;transition:opacity .15s;
+  width:calc(100% - 28px);margin:10px 14px 12px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  background:#d8dcff;border:none;border-radius:50px;
+  padding:13px;font-size:15px;font-weight:800;color:#1a1a4a;
+  cursor:pointer;font-family:'Manrope',sans-serif;
 }
-.tc-show-btn:active{opacity:.85}
+.tc-show-btn svg{width:18px;height:18px;flex-shrink:0}
+
+/* ── Train list picker in create modal ── */
+.train-list{
+  display:flex;flex-direction:column;gap:7px;
+  max-height:220px;overflow-y:auto;
+}
+.train-list::-webkit-scrollbar{display:none}
+.train-item{
+  display:flex;align-items:center;gap:0;
+  background:#1a2448;border:2px solid #1e2a54;border-radius:13px;
+  padding:11px 13px;cursor:pointer;transition:all .15s;
+}
+.train-item.sel{border-color:#adb6ff;background:#1e2d60}
+.train-item:active{opacity:.8}
+.ti-time{font-size:16px;font-weight:900;color:#fff;min-width:48px}
+.ti-arr{font-size:13px;font-weight:700;color:#adb6ff;margin-left:auto}
+.ti-num{font-size:12px;font-weight:800;color:#adb6ff;background:rgba(173,182,255,.12);padding:3px 8px;border-radius:50px;margin:0 8px}
+.ti-dest{font-size:13px;font-weight:600;color:#fff}
+
+/* ── Receipt/Чек modal — 1:1 real UZ check ── */
+#m-receipt{
+  background:rgba(0,0,0,.78);
+  align-items:flex-end;
+  overflow:hidden;
+}
+.rc-sheet{
+  background:#fff;
+  border-radius:20px 20px 0 0;
+  width:100%;
+  max-height:93vh;
+  overflow-y:auto;
+  overflow-x:hidden;
+  padding-bottom:calc(24px + env(safe-area-inset-bottom));
+  display:flex;
+  flex-direction:column;
+}
+.rc-sheet::-webkit-scrollbar{display:none}
+.rc-handle{width:36px;height:4px;background:#ddd;border-radius:2px;margin:12px auto 10px;flex-shrink:0}
+
+/* ── receipt body: white, monospace feel ── */
+.rc-inner{
+  padding:0 18px;
+  font-family:'Courier New',Courier,monospace;
+  color:#111;font-size:11px;line-height:1.55;
+  flex:1;
+}
+.rc-org-txt{
+  font-size:9.5px;color:#333;line-height:1.45;
+  text-align:left;margin-bottom:0;
+  font-family:'Courier New',Courier,monospace;
+}
+.rc-pn{font-size:9.5px;color:#333;margin-bottom:0;font-family:'Courier New',Courier,monospace}
+.rc-tnum{font-size:9.5px;font-weight:700;margin-bottom:8px;font-family:'Courier New',Courier,monospace}
+
+/* Big UZ logo — matches screenshot exactly */
+.rc-logo-block{
+  text-align:left;
+  margin:10px 0 14px;
+  border-top:1px solid #ccc;
+  padding-top:10px;
+}
+.rc-logo-uz{
+  font-size:32px;font-weight:900;letter-spacing:3px;
+  font-family:'Manrope',sans-serif;color:#000;
+  display:inline-flex;align-items:center;
+  line-height:1;
+}
+/* The "≡" rail icon after the text */
+.rc-logo-rails{
+  display:inline-flex;flex-direction:column;gap:3px;
+  margin-left:6px;vertical-align:middle;
+}
+.rc-logo-rails b{
+  display:block;width:22px;height:3px;
+  background:#000;border-radius:1px;
+}
+
+/* Main table */
+.rc-table{width:100%;border-collapse:collapse;margin-bottom:4px}
+.rc-table td{
+  padding:1.5px 0;font-size:10.5px;
+  line-height:1.45;vertical-align:top;
+  font-family:'Courier New',Courier,monospace;
+}
+.rc-table td:first-child{color:#222;width:58%}
+.rc-table td:last-child{text-align:right;font-weight:700;color:#000}
+.rc-table tr.rc-sep td{padding-top:5px;border-top:1px dashed #aaa}
+
+/* СУМА row — big */
+.rc-suma-row td{font-size:17px!important;font-weight:900!important;padding:5px 0 3px!important;line-height:1.2!important}
+.rc-suma-row td:first-child{font-size:15px!important}
+
+.rc-divline{border:none;border-top:1px dashed #bbb;margin:6px 0}
+.rc-center{
+  text-align:center;font-size:10px;color:#444;
+  margin:3px 0;font-family:'Courier New',Courier,monospace;
+}
+.rc-bold-center{
+  text-align:center;font-size:11px;font-weight:700;
+  margin:5px 0 8px;
+  font-family:'Courier New',Courier,monospace;
+  letter-spacing:.5px;
+}
+.rc-zn-fn{
+  display:flex;justify-content:space-between;
+  font-size:10px;color:#333;margin:3px 0;
+  font-family:'Courier New',Courier,monospace;
+}
+
+/* QR fiscal — centered, after ФІСКАЛЬНИЙ ЧЕК */
+.rc-qr-wrap{display:flex;justify-content:center;margin:10px 0 8px}
+.rc-qr-wrap img, .rc-zr-qr img{display:block!important}
+
+/* Black "keep ticket" banner */
+.rc-footer-black{
+  background:#000;color:#fff;
+  text-align:center;padding:14px 20px;
+  font-size:13px;font-weight:900;line-height:1.45;
+  font-family:'Manrope',sans-serif;
+  margin:0;
+  flex-shrink:0;
+}
+
+/* Barcode below black banner */
+.rc-barcode-wrap{
+  display:flex;flex-direction:column;align-items:center;
+  padding:16px 16px 8px;
+  background:#fff;
+  flex-shrink:0;
+}
+#rc-bc-svg{width:100%!important;max-width:320px;display:block}
+.rc-bc-txt{font-size:9px;color:#555;letter-spacing:.5px;margin-top:4px;font-family:'Courier New',Courier,monospace}
+
+/* Залізна родина block */
+.rc-zr-block{
+  text-align:center;
+  padding:12px 20px 8px;
+  border-top:1px solid #e8e8e8;
+  flex-shrink:0;
+  background:#fff;
+}
+.rc-zr-logo-wrap{
+  display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:4px;
+}
+.rc-zr-logo{font-size:26px;line-height:1}
+.rc-zr-name{font-size:13px;font-weight:800;color:#1a1a1a;margin:0;font-family:'Manrope',sans-serif}
+.rc-zr-sub{font-size:11px;color:#333;line-height:1.5;font-family:'Manrope',sans-serif;margin:6px 0 10px}
+.rc-zr-qr{display:flex;justify-content:center;margin:0 0 6px}
+#rc-zr-qr{width:90px!important;height:90px!important}
+.rc-zr-url{font-size:10px;color:#3d52d5;font-family:'Manrope',sans-serif;margin-bottom:4px}
+
+.rc-close-btn{
+  display:block;width:calc(100% - 32px);margin:14px 16px 0;
+  padding:15px;background:#111;border:none;border-radius:50px;
+  font-size:15px;font-weight:800;color:#fff;
+  cursor:pointer;font-family:'Manrope',sans-serif;
+  flex-shrink:0;
+}
 
 /* ── Long-press confirm dialog ── */
 .dlg-overlay{
@@ -400,14 +570,14 @@ body{
 /* meta block */
 .tk-meta{padding:18px 20px 0;flex-shrink:0}
 .tk-meta-label{font-size:13px;color:#5a6d96;margin-bottom:4px;font-weight:500}
-.tk-meta-val{font-size:16px;font-weight:800;color:#fff;margin-bottom:14px}
-.tk-divline{height:1px;background:#1e2a48;margin:0 0 18px}
+.tk-meta-val{font-size:17px;font-weight:800;color:#fff;margin-bottom:14px}
+.tk-divline{height:1px;background:#1e2a48;margin:0 0 0}
 
 /* info badge row */
 .tk-info-badge{
   display:flex;align-items:center;gap:8px;
   color:#4a90e2;font-size:14px;font-weight:600;
-  margin-bottom:24px;
+  padding:16px 20px;border-bottom:1px solid #1e2a48;
 }
 .tk-info-badge svg{width:18px;height:18px;stroke:#4a90e2;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
 
@@ -417,36 +587,66 @@ body{
   display:flex;flex-direction:column;
   align-items:center;
   justify-content:center;
-  padding:0 20px 20px;
+  padding:32px 20px 20px;
 }
-.tk-bc-label{font-size:16px;font-weight:700;color:#fff;margin-bottom:18px;text-align:center}
+.tk-bc-label{font-size:17px;font-weight:700;color:#fff;margin-bottom:18px;text-align:center}
 .tk-bc-box{
   background:#fff;border-radius:8px;
-  padding:16px 10px 16px;
+  padding:18px 12px;
   width:100%;max-width:340px;
-  display:flex;flex-direction:column;align-items:center;
 }
-#tk-bc-canvas{display:block;width:100%;max-width:300px;height:auto}
+#tk-bc-svg{display:block;width:100%;max-width:320px;height:auto}
 .tk-bc-num{
   font-size:13px;color:#4a90e2;letter-spacing:1px;
   font-family:monospace;font-weight:600;
   margin-top:18px;text-align:center;word-break:break-all;
 }
 
-/* google wallet button */
-.tk-gwallet{
-  width:calc(100% - 40px);margin:16px 20px;
-  padding:17px 20px;
-  background:#f0f1f5;border:none;border-radius:16px;
-  display:flex;align-items:center;gap:12px;
-  font-size:17px;font-weight:700;color:#111;cursor:pointer;
-  font-family:'Manrope',sans-serif;
-  transition:opacity .15s;
+/* Bottom action bar: Wallet + 3-dots */
+.tk-actions{
+  display:flex;align-items:center;gap:10px;
+  padding:14px 20px;padding-bottom:calc(14px + env(safe-area-inset-bottom));
   flex-shrink:0;
-  margin-bottom:calc(16px + env(safe-area-inset-bottom));
+}
+.tk-gwallet{
+  flex:1;padding:17px 20px;
+  background:#f0f1f5;border:none;border-radius:16px;
+  display:flex;align-items:center;gap:10px;
+  font-size:16px;font-weight:700;color:#111;cursor:pointer;
+  font-family:'Manrope',sans-serif;transition:opacity .15s;
 }
 .tk-gwallet:active{opacity:.85}
-.gw-icon{width:28px;height:28px;flex-shrink:0}
+.gw-icon{width:26px;height:26px;flex-shrink:0}
+.tk-dots-btn{
+  width:52px;height:52px;background:#1a2448;border-radius:16px;
+  display:flex;align-items:center;justify-content:center;
+  border:none;cursor:pointer;flex-shrink:0;
+}
+.tk-dots-btn:active{background:#243265}
+.tk-dots-btn svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+
+/* ── 3-dots context menu ── */
+.tk-menu-overlay{
+  position:absolute;inset:0;z-index:60;background:transparent;display:none;
+}
+.tk-menu-overlay.on{display:block}
+.tk-menu{
+  position:absolute;right:16px;bottom:calc(82px + env(safe-area-inset-bottom));
+  background:#1e2a48;border-radius:18px;overflow:hidden;
+  min-width:240px;
+  box-shadow:0 8px 40px rgba(0,0,0,.7);
+  animation:menuPop .18s cubic-bezier(.34,1.56,.64,1);
+}
+@keyframes menuPop{from{transform:scale(.85) translateY(10px);opacity:0}to{transform:scale(1) translateY(0);opacity:1}}
+.tk-mi{
+  display:flex;align-items:center;gap:14px;
+  padding:16px 18px;cursor:pointer;
+  border-bottom:1px solid #273460;transition:background .12s;
+}
+.tk-mi:last-child{border-bottom:none}
+.tk-mi:active{background:#273460}
+.tk-mi svg{width:20px;height:20px;stroke:#adb6ff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex-shrink:0}
+.tk-mi span{font-size:15px;font-weight:600;color:#fff}
 </style>
 </head>
 <body>
@@ -643,33 +843,64 @@ body{
     <div class="tk-meta-val" id="tk-datefull">3 Квітня, П'ятниця</div>
     <div class="tk-meta-label">Маршрут</div>
     <div class="tk-meta-val" id="tk-route-txt">Ірпінь → Бородянка</div>
-    <div class="tk-divline"></div>
-    <div class="tk-info-badge">
-      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-      Посадка на вільні місця у вагоні
-    </div>
+  </div>
+  <div class="tk-divline"></div>
+  <div class="tk-info-badge">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+    Посадка на вільні місця у вагоні
   </div>
 
   <!-- Barcode -->
   <div class="tk-bc-section">
     <div class="tk-bc-label" id="tk-bc-label">Повний квиток</div>
     <div class="tk-bc-box">
-      <canvas id="tk-bc-canvas"></canvas>
+      <svg id="tk-bc-svg" style="display:block;width:100%;max-width:320px;height:auto"></svg>
     </div>
     <div class="tk-bc-num" id="tk-bc-num">0000000000000000000000</div>
   </div>
 
-  <!-- Google Wallet button -->
-  <button class="tk-gwallet">
-    <svg class="gw-icon" viewBox="0 0 28 28">
-      <rect width="28" height="28" rx="6" fill="#fff"/>
-      <path d="M7 14c0-3.866 3.134-7 7-7 1.93 0 3.68.781 4.95 2.05L21 7c-1.81-1.81-4.31-2.93-7-2.93C8.47 4.07 4.07 8.47 4.07 14S8.47 23.93 14 23.93c5.25 0 9.52-3.8 9.52-9.52 0-.64-.06-1.25-.17-1.84H14v3.5h5.36c-.23 1.25-1.4 3.57-5.36 3.57-3.23 0-5.86-2.67-5.86-5.97L7 14z" fill="#4285F4"/>
-      <path d="M7 14c0-3.23 2.63-5.86 5.86-5.86 1.63 0 3.11.67 4.17 1.76l2.65-2.65A9.45 9.45 0 0 0 14 4.07C8.47 4.07 4.07 8.47 4.07 14H7z" fill="#EA4335"/>
-      <path d="M14 23.93c2.57 0 4.73-.85 6.31-2.31l-3-2.32a5.86 5.86 0 0 1-8.45-3.14H4.2A9.94 9.94 0 0 0 14 23.93z" fill="#34A853"/>
-      <path d="M23.52 12.41H14v3.5h5.36c-.36 1.96-1.77 3.35-3.8 4.02l3 2.32c1.75-1.62 2.77-4.02 2.77-7.34 0-.64-.06-1.25-.17-1.84L23.52 12.41z" fill="#FBBC05"/>
-    </svg>
-    Додати в Google Гаманець
-  </button>
+  <!-- Bottom actions: Google Wallet + ⋮ -->
+  <div class="tk-actions">
+    <button class="tk-gwallet">
+      <svg class="gw-icon" viewBox="0 0 28 28">
+        <rect width="28" height="28" rx="6" fill="#fff"/>
+        <path d="M7 14c0-3.866 3.134-7 7-7 1.93 0 3.68.781 4.95 2.05L21 7c-1.81-1.81-4.31-2.93-7-2.93C8.47 4.07 4.07 8.47 4.07 14S8.47 23.93 14 23.93c5.25 0 9.52-3.8 9.52-9.52 0-.64-.06-1.25-.17-1.84H14v3.5h5.36c-.23 1.25-1.4 3.57-5.36 3.57-3.23 0-5.86-2.67-5.86-5.97L7 14z" fill="#4285F4"/>
+        <path d="M7 14c0-3.23 2.63-5.86 5.86-5.86 1.63 0 3.11.67 4.17 1.76l2.65-2.65A9.45 9.45 0 0 0 14 4.07C8.47 4.07 4.07 8.47 4.07 14H7z" fill="#EA4335"/>
+        <path d="M14 23.93c2.57 0 4.73-.85 6.31-2.31l-3-2.32a5.86 5.86 0 0 1-8.45-3.14H4.2A9.94 9.94 0 0 0 14 23.93z" fill="#34A853"/>
+        <path d="M23.52 12.41H14v3.5h5.36c-.36 1.96-1.77 3.35-3.8 4.02l3 2.32c1.75-1.62 2.77-4.02 2.77-7.34 0-.64-.06-1.25-.17-1.84L23.52 12.41z" fill="#FBBC05"/>
+      </svg>
+      Додати в Google Гаманець
+    </button>
+    <button class="tk-dots-btn" onclick="tkMenuToggle()">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="5" r="1.5" fill="#fff"/><circle cx="12" cy="12" r="1.5" fill="#fff"/><circle cx="12" cy="19" r="1.5" fill="#fff"/></svg>
+    </button>
+  </div>
+
+  <!-- 3-dots dropdown menu -->
+  <div class="tk-menu-overlay" id="tk-menu-overlay" onclick="tkMenuClose()">
+    <div class="tk-menu" onclick="event.stopPropagation()">
+      <div class="tk-mi" onclick="tkMenuClose()">
+        <svg viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+        <span>Поділитися квитком</span>
+      </div>
+      <div class="tk-mi" onclick="tkMenuClose();openReceiptFromDetail()">
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><rect x="8" y="13" width="8" height="1.5" rx=".5"/><rect x="8" y="17" width="6" height="1.5" rx=".5"/></svg>
+        <span>Показати PDF-квиток</span>
+      </div>
+      <div class="tk-mi" onclick="tkMenuClose()">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        <span>Часті питання</span>
+      </div>
+      <div class="tk-mi" onclick="tkMenuClose()">
+        <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        <span>Розклад рейсів</span>
+      </div>
+      <div class="tk-mi" onclick="tkMenuClose()">
+        <svg viewBox="0 0 24 24"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        <span>Маршрут до станції</span>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ═══ MODAL: CREATE TICKET ═══ -->
@@ -681,48 +912,52 @@ body{
     <div class="cf">
       <div class="cf-lbl">Звідки</div>
       <div class="ac-wrap">
-        <input class="cf-inp" id="nf" placeholder="Станція відправлення" autocomplete="off" oninput="acShow('nf','ac-from')" onblur="acHide('ac-from')">
+        <input class="cf-inp" id="nf" placeholder="Станція відправлення" autocomplete="off"
+          oninput="acShow('nf','ac-from');updateTrainList()"
+          onblur="acHide('ac-from')">
         <div class="ac-list" id="ac-from"></div>
       </div>
     </div>
     <div class="cf">
       <div class="cf-lbl">Куди</div>
       <div class="ac-wrap">
-        <input class="cf-inp" id="nt" placeholder="Станція прибуття" autocomplete="off" oninput="acShow('nt','ac-to')" onblur="acHide('ac-to')">
+        <input class="cf-inp" id="nt" placeholder="Станція прибуття" autocomplete="off"
+          oninput="acShow('nt','ac-to');updateTrainList()"
+          onblur="acHide('ac-to')">
         <div class="ac-list" id="ac-to"></div>
       </div>
     </div>
 
-    <div class="cf">
-      <div class="cf-lbl">Дата</div>
-      <input class="cf-inp" id="nd" type="date">
+    <div class="cf" id="cf-train" style="display:none">
+      <div class="cf-lbl">Оберіть поїзд</div>
+      <div id="train-list" class="train-list"></div>
     </div>
 
     <div class="cf">
       <div class="cf-lbl">Тип квитка</div>
       <div class="type-grid" id="type-grid">
-        <div class="type-card sel" data-type="Повний" onclick="selType(this)">
+        <div class="type-card sel" data-type="Повний" data-price="7.50" onclick="selType(this)">
           <div class="type-card-ico">🎫</div>
           <div class="type-card-name">Повний</div>
-          <div class="type-card-price">74 грн</div>
+          <div class="type-card-price">7.50 грн</div>
           <div class="type-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         </div>
-        <div class="type-card" data-type="Дитячий" onclick="selType(this)">
+        <div class="type-card" data-type="Дитячий" data-price="3.75" onclick="selType(this)">
           <div class="type-card-ico">🧒</div>
           <div class="type-card-name">Дитячий</div>
-          <div class="type-card-price">37 грн</div>
+          <div class="type-card-price">3.75 грн</div>
           <div class="type-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         </div>
-        <div class="type-card" data-type="Студентський" onclick="selType(this)">
+        <div class="type-card" data-type="Студентський" data-price="3.75" onclick="selType(this)">
           <div class="type-card-ico">🎓</div>
           <div class="type-card-name">Студентський</div>
-          <div class="type-card-price">55 грн</div>
+          <div class="type-card-price">3.75 грн</div>
           <div class="type-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         </div>
-        <div class="type-card" data-type="Пільговий" onclick="selType(this)">
+        <div class="type-card" data-type="Пільговий" data-price="3.75" onclick="selType(this)">
           <div class="type-card-ico">♿</div>
           <div class="type-card-name">Пільговий</div>
-          <div class="type-card-price">37 грн</div>
+          <div class="type-card-price">3.75 грн</div>
           <div class="type-card-check"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></div>
         </div>
       </div>
@@ -748,6 +983,92 @@ body{
   </div>
 </div>
 
+<!-- ═══ MODAL: ФІСКАЛЬНИЙ ЧЕК ═══ -->
+<div id="m-receipt" class="modal" onclick="if(event.target===this)closeReceipt()">
+  <div class="rc-sheet">
+    <div class="rc-handle"></div>
+
+    <!-- White receipt content -->
+    <div class="rc-inner">
+      <!-- Org info + ticket number -->
+      <div class="rc-org-txt">АТ "УКРЗАЛІЗНИЦЯ"ФІЛІЯ "ПРИМІСЬКА ПАСАЖИРСЬКА
+КОМПАНІЯ", з.п.АЛМАЗ. ТЕРМІНАЛ САМООБСЛУГОВУВАННЯ,
+М.КИЇВ, ВУЛ.КАЧАЛОВА,5</div>
+      <div class="rc-pn">ПН400758126555</div>
+      <div class="rc-tnum" id="rc-tnum">КВИТОК 0000000</div>
+
+      <!-- Big UZ logo with rail stripes -->
+      <div class="rc-logo-block">
+        <div class="rc-logo-uz">
+          УКРЗАЛІЗНИЦЯ
+          <div class="rc-logo-rails"><b></b><b></b><b></b></div>
+        </div>
+      </div>
+
+      <!-- Main data table -->
+      <table class="rc-table">
+        <tr><td id="rc-type-lbl">СТУД 50%</td><td id="rc-kx">КХ00000000</td></tr>
+        <tr><td>ВІДПРАВЛЕННЯ</td><td id="rc-from-val">—</td></tr>
+        <tr><td>ПРИБУТТЯ</td><td id="rc-to-val">—</td></tr>
+        <tr><td>ДАТА</td><td id="rc-date-val">—</td></tr>
+        <tr><td>НАПРЯМОК</td><td>В ОДНУ СТОРОНУ</td></tr>
+        <tr class="rc-sep"><td colspan="2" style="padding-bottom:3px"></td></tr>
+        <tr><td>ТАРИФ</td><td id="rc-tarif">6.25 ГРН</td></tr>
+        <tr class="rc-suma-row"><td>СУМА</td><td id="rc-suma">7.5 ГРН</td></tr>
+        <tr><td>ПДВ А 20 %</td><td id="rc-pdv-a">1.25 ГРН</td></tr>
+        <tr><td>ПДВ B 0 %</td><td>0.0 ГРН</td></tr>
+        <tr><td>ПДВ Г 0 %</td><td>0.0 ГРН</td></tr>
+        <tr><td>КОМІСІЙНИЙ ЗБІР</td><td>0.0 ГРН</td></tr>
+        <tr class="rc-sep"><td colspan="2" style="padding-bottom:3px"></td></tr>
+        <tr><td>БЕЗГОТІВКОВА</td><td id="rc-sum2">7.5 ГРН</td></tr>
+        <tr><td>КАРТКА</td><td></td></tr>
+        <tr><td>ІДЕНТИФІКАТОР ЕКВАЙРА</td><td>TE2499</td></tr>
+        <tr><td>ЕПЗ</td><td id="rc-epz">******5425</td></tr>
+        <tr><td>КОД АВТОРИЗАЦІЇ</td><td id="rc-auth">33F7CD</td></tr>
+        <tr><td>ПЛАТІЖНА СИСТЕМА</td><td>VISA</td></tr>
+        <tr><td>ТРАНЗАКЦІЯ</td><td id="rc-trans">1776773553</td></tr>
+        <tr><td>ТЕРМІНАЛ</td><td>IN0000000001</td></tr>
+        <tr class="rc-sep"><td colspan="2" style="padding-bottom:2px"></td></tr>
+        <tr><td colspan="2" style="font-size:9px;color:#444;line-height:1.5">ПрАТ СК"ІНТЕР-ПОЛІС", М.КИЇВ,<br>ВУЛ.ВОЛОДИМИРСЬКА-69, ТЕЛ.38044-2874305</td></tr>
+        <tr><td>ЧЕК №</td><td id="rc-chek" style="font-size:9px">2264774  2026-04-21 15:11:06</td></tr>
+      </table>
+
+      <!-- ОНЛАЙН / ЗН / ФН / ФІСКАЛЬНИЙ ЧЕК -->
+      <div class="rc-center" style="margin-top:6px">ОНЛАЙН</div>
+      <div class="rc-zn-fn">
+        <span>ЗН 4000111579</span><span>ФН 4000111579</span>
+      </div>
+      <div class="rc-bold-center">ФІСКАЛЬНИЙ ЧЕК</div>
+
+      <!-- QR fiscal code -->
+      <div class="rc-qr-wrap">
+        <div id="rc-qr-canvas" style="width:120px;height:120px;line-height:0"></div>
+      </div>
+    </div><!-- /rc-inner -->
+
+    <!-- Black "keep ticket" banner -->
+    <div class="rc-footer-black">Зберігайте цей квиток до виходу<br>з кінцевої станції!</div>
+
+    <!-- Barcode below black banner -->
+    <div class="rc-barcode-wrap">
+      <svg id="rc-bc-svg" style="width:100%;max-width:320px;display:block"></svg>
+    </div>
+
+    <!-- Залізна Родина -->
+    <div class="rc-zr-block">
+      <div class="rc-zr-logo-wrap">
+        <div class="rc-zr-logo">🚂</div>
+        <div class="rc-zr-name">Залізна Родина</div>
+      </div>
+      <div class="rc-zr-sub">Підтримай залізничників<br>та їх родини</div>
+      <div class="rc-zr-qr"><div id="rc-zr-qr" style="width:90px;height:90px;line-height:0"></div></div>
+      <div class="rc-zr-url">zalizna-rodyna.uz.gov.ua</div>
+    </div>
+
+    <button class="rc-close-btn" onclick="closeReceipt()">Закрити</button>
+  </div>
+</div>
+
 <script>
 let tickets = [];
 try { const s = localStorage.getItem('uz_tickets'); if(s) tickets = JSON.parse(s); } catch(e){}
@@ -761,40 +1082,57 @@ const TYPE_LABEL = {Повний:'Повний квиток',Дитячий:'Д�
 
 /*
   РОЗКЛАД ПРИМІСЬКИХ ЕЛЕКТРИЧОК
-  Лінія: Кічеєво – Ірпінь – Буча – Ворзель – Бородянка (Київ-Зах. напрямок)
-  Джерело: офіційний розклад УЗ (актуальний станом на 2026 р.)
-  
-  Напрямок А: Кічеєво → Ірпінь (і далі до Бородянки/Буч)
-  Напрямок Б: Ірпінь → Кічеєво (і далі від Бородянки/Буч)
-  Час вказано по станції Ірпінь.
+  Лінія: Тетерів / Коростень / Малин / Клавдієво – Кічеєво – Ірпінь – Київ
+  Час по станціях: Кічеєво та Ірпінь (з офіційного розкладу УЗ)
 */
-const SUBURBAN_SCHEDULE = [
-  /* ─── Кічеєво → Ірпінь (через Ірпінь прямує до Бородянки) ─── */
-  {num:'6322', from:'Кічеєво', to:'Ірпінь',     times:['05:34','07:12','09:04','10:47','12:29','14:11','15:53','17:35','19:17','21:00','22:42'], track:'1'},
-  {num:'6324', from:'Кічеєво', to:'Бородянка',  times:['06:18','08:00','09:42','11:24','13:06','14:48','16:30','18:12','19:54','21:36'],          track:'1'},
-  {num:'6326', from:'Кічеєво', to:'Буча',        times:['06:55','08:37','10:19','12:01','13:43','15:25','17:07','18:49','20:31','22:13'],          track:'1'},
+const TRAINS = [
+  /* ──── Напрямок → КИЇВ (через Ірпінь) ──── */
+  {num:'6602', note:'*', from:'Тетерів',   to:'Святошин',        kDep:'05:22', iArr:'05:42', track:'3'},
+  {num:'6604', note:'*', from:'Тетерів',   to:'Святошин',        kDep:'05:42', iArr:'06:01', track:'3'},
+  {num:'6606', note:'*', from:'Малин',     to:'Київ',            kDep:'06:17', iArr:'06:36', track:'3'},
+  {num:'6672', note:'',  from:'Клавдієво', to:'Святошин',        kDep:'06:58', iArr:'07:17', track:'3'},
+  {num:'6608', note:'',  from:'Тетерів',   to:'Борщагівка',      kDep:'07:22', iArr:'07:40', track:'3'},
+  {num:'6674', note:'',  from:'Немішаєве', to:'Святошин',        kDep:'07:47', iArr:'08:07', track:'3'},
+  {num:'6610', note:'*', from:'Коростень', to:'Борщагівка',      kDep:'08:32', iArr:'08:55', track:'3'},
+  {num:'6676', note:'',  from:'Немішаєве', to:'Борщагівка',      kDep:'09:03', iArr:'09:25', track:'3'},
+  {num:'6612', note:'',  from:'Тетерів',   to:'Борщагівка',      kDep:'10:17', iArr:'10:37', track:'3'},
+  {num:'6614', note:'',  from:'Коростень', to:'Київ',            kDep:'11:09', iArr:'11:28', track:'3'},
+  {num:'6616', note:'',  from:'Тетерів',   to:'Святошин',        kDep:'12:08', iArr:'12:27', track:'3'},
+  {num:'6618', note:'',  from:'Тетерів',   to:'Київ',            kDep:'14:50', iArr:'15:11', track:'3'},
+  {num:'6620', note:'*', from:'Коростень', to:'Святошин',        kDep:'16:13', iArr:'16:34', track:'3'},
+  {num:'6622', note:'',  from:'Тетерів',   to:'Київ',            kDep:'18:31', iArr:'18:50', track:'3'},
+  {num:'6624', note:'',  from:'Тетерів',   to:'Борщагівка техн.',kDep:'20:14', iArr:'20:33', track:'3'},
+  {num:'6626', note:'',  from:'Коростень', to:'Київ',            kDep:'20:38', iArr:'20:57', track:'3'},
+  {num:'6628', note:'',  from:'Тетерів',   to:'Борщагівка',      kDep:'21:42', iArr:'22:06', track:'3'},
 
-  /* ─── Ірпінь → Кічеєво ─── */
-  {num:'6321', from:'Ірпінь',  to:'Кічеєво',    times:['05:15','06:57','08:39','10:21','12:03','13:45','15:27','17:09','18:51','20:33','22:15'], track:'2'},
-  {num:'6323', from:'Буча',    to:'Кічеєво',    times:['05:52','07:34','09:16','10:58','12:40','14:22','16:04','17:46','19:28','21:10'],          track:'2'},
-  {num:'6325', from:'Бородянка',to:'Кічеєво',   times:['06:29','08:11','09:53','11:35','13:17','14:59','16:41','18:23','20:05','21:47'],          track:'2'},
-
-  /* ─── Ірпінь ↔ Київ-Пасажирський (через Ірпінь) ─── */
-  {num:'6302', from:'Ірпінь',  to:'Київ-Пас',   times:['05:42','06:28','07:14','08:00','08:46','09:32','10:18','11:04','12:20','13:06','13:52','14:38','15:24','16:10','16:56','17:42','18:28','19:14','20:00','20:46','21:32','22:18'], track:'3'},
-  {num:'6301', from:'Київ-Пас',to:'Ірпінь',     times:['06:05','06:51','07:37','08:23','09:09','09:55','10:41','11:27','12:43','13:29','14:15','15:01','15:47','16:33','17:19','18:05','18:51','19:37','20:23','21:09','21:55','22:41'], track:'4'},
-
-  /* ─── Буча ↔ Київ-Пасажирський ─── */
-  {num:'6304', from:'Буча',    to:'Київ-Пас',   times:['05:10','07:05','09:20','11:35','13:50','16:09','18:25','20:40'], track:'3'},
-  {num:'6303', from:'Київ-Пас',to:'Буча',        times:['07:30','09:45','12:00','14:15','16:30','18:45','21:00'],         track:'4'},
-
-  /* ─── Бородянка ↔ Київ-Пасажирський ─── */
-  {num:'6306', from:'Бородянка',to:'Київ-Пас',  times:['04:48','06:43','09:02','11:17','13:32','15:47','18:03','20:18'], track:'3'},
-  {num:'6305', from:'Київ-Пас',to:'Бородянка',  times:['08:10','10:25','12:40','14:55','17:10','19:25','21:40'],         track:'4'},
-
-  /* ─── Ворзель ↔ Київ-Пасажирський ─── */
-  {num:'6308', from:'Ворзель', to:'Київ-Пас',   times:['06:15','08:55','11:10','13:28','15:45','18:10','20:22','22:35'], track:'3'},
-  {num:'6307', from:'Київ-Пас',to:'Ворзель',    times:['07:50','10:05','12:20','14:35','16:50','19:05','21:20'],         track:'4'},
+  /* ──── Напрямок ← ТЕТЕРІВ (від Київ/Ірпінь) ──── */
+  {num:'6601', note:'',  from:'Святошин',  to:'Тетерів',         kDep:'06:44', iArr:'06:25', track:'4'},
+  {num:'6603', note:'',  from:'Святошин',  to:'Тетерів',         kDep:'07:05', iArr:'06:46', track:'4'},
+  {num:'6605', note:'',  from:'Київ',      to:'Малин',           kDep:'07:38', iArr:'07:19', track:'4'},
+  {num:'6607', note:'',  from:'Борщагівка',to:'Тетерів',         kDep:'08:25', iArr:'08:06', track:'4'},
+  {num:'6671', note:'',  from:'Святошин',  to:'Клавдієво',       kDep:'09:02', iArr:'08:43', track:'4'},
+  {num:'6609', note:'',  from:'Борщагівка',to:'Коростень',       kDep:'09:40', iArr:'09:21', track:'4'},
+  {num:'6673', note:'',  from:'Святошин',  to:'Немішаєве',       kDep:'10:12', iArr:'09:53', track:'4'},
+  {num:'6611', note:'',  from:'Борщагівка',to:'Тетерів',         kDep:'11:25', iArr:'11:06', track:'4'},
+  {num:'6613', note:'',  from:'Київ',      to:'Коростень',       kDep:'12:14', iArr:'11:55', track:'4'},
+  {num:'6675', note:'',  from:'Борщагівка',to:'Немішаєве',       kDep:'13:08', iArr:'12:49', track:'4'},
+  {num:'6615', note:'',  from:'Святошин',  to:'Тетерів',         kDep:'13:42', iArr:'13:23', track:'4'},
+  {num:'6617', note:'',  from:'Київ',      to:'Тетерів',         kDep:'15:55', iArr:'15:36', track:'4'},
+  {num:'6619', note:'',  from:'Святошин',  to:'Коростень',       kDep:'17:40', iArr:'17:21', track:'4'},
+  {num:'6621', note:'',  from:'Київ',      to:'Тетерів',         kDep:'19:35', iArr:'19:16', track:'4'},
+  {num:'6623', note:'',  from:'Борщагівка',to:'Тетерів',         kDep:'21:16', iArr:'20:57', track:'4'},
+  {num:'6625', note:'',  from:'Київ',      to:'Коростень',       kDep:'21:52', iArr:'21:33', track:'4'},
+  {num:'6627', note:'',  from:'Борщагівка',to:'Тетерів',         kDep:'22:48', iArr:'22:29', track:'4'},
 ];
+
+/* Зворотна сумісність: для функцій що досі читають SUBURBAN_SCHEDULE */
+const SUBURBAN_SCHEDULE = TRAINS.map(t => ({
+  num: t.num,
+  from: t.from,
+  to: t.to,
+  times: [t.kDep],
+  track: t.track
+}));
 
 let boardMode = 'dep'; // 'dep' or 'arr'
 
@@ -802,17 +1140,38 @@ let boardMode = 'dep'; // 'dep' or 'arr'
 function toMin(t){ const [h,m]=t.split(':'); return +h*60 + +m; }
 function fromMin(m){ return pad(Math.floor(m/60)%24)+':'+pad(m%60); }
 
-/* Get all departures for board, sorted by time relative to now */
+/* Get departures for board at a given station */
 function getBoardRows() {
   const now = new Date();
   const nowMin = now.getHours()*60 + now.getMinutes();
+  const stEl = document.getElementById('b-station-name');
+  const stationName = stEl ? stEl.textContent : 'Кічеєво';
+  const sNorm = stationName.toLowerCase().replace(/[-\s]пас.*$/,'').trim();
   const rows = [];
-  SUBURBAN_SCHEDULE.forEach(s => {
-    s.times.forEach(t => {
-      rows.push({num:s.num, from:s.from, to:s.to, timeStr:t, timeMin:toMin(t), track:s.track});
+
+  TRAINS.forEach(tr => {
+    let timeStr = null;
+    const fn = tr.from.toLowerCase();
+    const tn = tr.to.toLowerCase();
+    if (sNorm === 'кічеєво') {
+      timeStr = tr.kDep;
+    } else if (sNorm === 'ірпінь') {
+      timeStr = tr.iArr;
+    } else {
+      if (fn.includes(sNorm) || sNorm.includes(fn)) timeStr = tr.kDep;
+      else if (tn.includes(sNorm) || sNorm.includes(tn)) timeStr = tr.iArr;
+    }
+    if (!timeStr) return;
+    rows.push({
+      num: tr.num + (tr.note||''),
+      from: tr.from,
+      to: tr.to,
+      timeStr,
+      timeMin: toMin(timeStr),
+      track: tr.track
     });
   });
-  // Sort: upcoming first (circular around now), then past at end
+
   rows.sort((a,b) => {
     const da = (a.timeMin - nowMin + 1440) % 1440;
     const db = (b.timeMin - nowMin + 1440) % 1440;
@@ -821,55 +1180,64 @@ function getBoardRows() {
   return rows;
 }
 
-/* Get next 3 upcoming times for a route from→to (fuzzy, case-insensitive) */
-function getNextTimes(from, to) {
+/* Get next 3 trains for a route from→to, returning {time, num, dest} */
+function getNextTrains(from, to) {
   const now = new Date();
   const nowMin = now.getHours()*60 + now.getMinutes();
-
-  // Normalize: trim, lowercase, strip «-пас» etc.
-  const norm = s => s.toLowerCase().trim().replace(/[-\s]пас.*$/,'').replace(/[-\s]пасаж.*$/,'');
+  const norm = s => s.toLowerCase().trim().replace(/[-\s]пас.*$/,'').replace(/[-\s]техн.*$/,'');
   const qf = norm(from);
   const qt = norm(to);
 
   let hits = [];
-  SUBURBAN_SCHEDULE.forEach(s => {
-    const sf = norm(s.from);
-    const st = norm(s.to);
-    // match if either direction contains the query keyword, or vice versa
-    const mf = sf.includes(qf) || qf.includes(sf);
-    const mt = st.includes(qt) || qt.includes(st);
-    if (mf && mt) {
-      s.times.forEach(t => {
-        const diff = (toMin(t) - nowMin + 1440) % 1440;
-        hits.push({time:t, diff});
-      });
+
+  // Match: from=Кічеєво → to=Ірпінь/Київ/Святошин etc → use kDep time
+  const fromKich = qf.includes('кічеєво') || 'кічеєво'.includes(qf);
+  const toIrpin = qt.includes('ірпінь') || 'ірпінь'.includes(qt);
+  const toKyiv  = qt.includes('київ')   || qt.includes('борщаг') || qt.includes('святош') || qt.includes('немішає');
+
+  TRAINS.forEach(tr => {
+    const tf = norm(tr.from);
+    const tt = norm(tr.to);
+
+    let matchTime = null;
+
+    if (fromKich) {
+      // Departing from Кічеєво — show any train heading to the given destination or east
+      if (!qt || toIrpin || toKyiv || tt.includes(qt) || qt.includes(tt)) {
+        matchTime = tr.kDep;
+      }
+    } else if (toIrpin || toKyiv) {
+      // Arriving in Ірпінь or Київ — use kDep if from matches
+      if (tf.includes(qf) || qf.includes(tf) || !qf) matchTime = tr.kDep;
+    } else {
+      // General fuzzy match
+      const mf = tf.includes(qf) || qf.includes(tf) || !qf;
+      const mt = tt.includes(qt) || qt.includes(tt) || !qt;
+      if (mf && mt) matchTime = tr.kDep;
+    }
+
+    if (matchTime) {
+      const diff = (toMin(matchTime) - nowMin + 1440) % 1440;
+      hits.push({time: matchTime, num: tr.num + (tr.note||''), dest: tr.to, diff});
     }
   });
 
-  // If no exact match — try to find any route that starts from "from"
+  // Fallback: any trains departing from Кічеєво
   if (!hits.length) {
-    SUBURBAN_SCHEDULE.forEach(s => {
-      const sf = norm(s.from);
-      if (sf.includes(qf) || qf.includes(sf)) {
-        s.times.forEach(t => {
-          const diff = (toMin(t) - nowMin + 1440) % 1440;
-          hits.push({time:t, diff});
-        });
-      }
+    TRAINS.forEach(tr => {
+      const diff = (toMin(tr.kDep) - nowMin + 1440) % 1440;
+      hits.push({time: tr.kDep, num: tr.num + (tr.note||''), dest: tr.to, diff});
     });
   }
 
-  // Fallback: generate 3 plausible times spaced ~35 min from now
-  if (!hits.length) {
-    const base = nowMin + 8;
-    return [fromMin(base), fromMin(base+35), fromMin(base+72)];
-  }
-
   hits.sort((a,b) => a.diff - b.diff);
-  // deduplicate same times
   const seen = new Set();
-  const unique = hits.filter(h => { if(seen.has(h.time)) return false; seen.add(h.time); return true; });
-  return unique.slice(0,3).map(c => c.time);
+  return hits.filter(h => { if(seen.has(h.time)) return false; seen.add(h.time); return true; }).slice(0,3);
+}
+
+/* Backward compat for older code */
+function getNextTimes(from, to) {
+  return getNextTrains(from, to).map(h => h.time);
 }
 
 function renderBoard() {
@@ -890,7 +1258,7 @@ function renderBoard() {
 }
 
 function changeBoardStation() {
-  const stations = ['Київ-Пасажирський','Буча','Ірпінь','Ворзель','Бородянка','Кічеєво'];
+  const stations = ['Кічеєво','Ірпінь','Тетерів','Коростень','Малин','Клавдієво','Немішаєве','Святошин','Борщагівка'];
   const cur = document.getElementById('b-station-name').textContent;
   const idx = (stations.indexOf(cur) + 1) % stations.length;
   document.getElementById('b-station-name').textContent = stations[idx];
@@ -899,7 +1267,8 @@ function changeBoardStation() {
 
 (function(){
   const d = new Date();
-  document.getElementById('dshow').textContent = d.getDate() + ' ' + MSHORT[d.getMonth()];
+  document.getElementById('dshow').textContent = getTodayDisp();
+  document.getElementById('b-station-name').textContent = 'Кічеєво';
   renderBoard();
 })();
 
@@ -928,6 +1297,17 @@ function doSwap() {
   const a = document.getElementById('sf');
   const b = document.getElementById('st');
   [a.value, b.value] = [b.value, a.value];
+}
+
+/* Helper: today's date formatted for ticket display */
+function getTodayFull() {
+  const d = new Date();
+  const MON_CAP = ['Січня','Лютого','Березня','Квітня','Травня','Червня','Липня','Серпня','Вересня','Жовтня','Листопада','Грудня'];
+  return d.getDate() + ' ' + MON_CAP[d.getMonth()] + ', ' + DAY_CAP[d.getDay()];
+}
+function getTodayDisp() {
+  const d = new Date();
+  return d.getDate() + ' ' + MSHORT[d.getMonth()];
 }
 
 function renderTickets() {
@@ -985,33 +1365,42 @@ function renderTickets() {
   const TYPE_UA = {Повний:'Повний',Дитячий:'Дитячий',Пільговий:'Пільговий',Студентський:'Студентський'};
 
   const groupsHTML = Object.entries(groups).map(([label, items]) => {
+    const todayLabel = getTodayFull();
     const cards = items.map(({t, i}) => {
-      // Always recalculate next 3 times live from schedule
-      const times = getNextTimes(t.from, t.to);
-      const chips = times.map(tm => `<div class="tc-time-chip">${tm}</div>`).join('');
-      const typeUA = TYPE_UA[t.type] || t.type;
+      const typeDisp = {
+        Повний:'Повний квиток', Дитячий:'Дитячий квиток',
+        Студентський:'Студентський квиток', Пільговий:'Пільговий квиток'
+      }[t.type] || t.type;
+
+      // Get 3 next departure times
+      const trains = getNextTrains(t.from, t.to);
+      const chips = trains.map(tr =>
+        `<div class="tc-chip">${tr.time}</div>`
+      ).join('');
+
       return `<div class="tcard" oncontextmenu="ctxOpen(event,${i})" ontouchstart="ctxTouch(event,${i})" ontouchend="ctxCancel()" ontouchmove="ctxCancel()">
-        <div class="tc-type-badge">
-          <svg viewBox="0 0 24 24"><path d="M4 17l4-8 4 4 4-6 4 10"/></svg>
-          Приміський
+        <div class="tc-top">
+          <div class="tc-badge-type">
+            <svg viewBox="0 0 24 24"><path d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10S17.523 2 12 2zm0 0"/><path d="M8 12h2l2-4 2 8 2-4h2"/></svg>
+            Приміський
+          </div>
+          <div class="tc-route-line">${esc(t.from)} → ${esc(t.to)}</div>
+          <div class="tc-times">
+            ${chips}
+            <button class="tc-sched-btn">Розклад рейсів</button>
+          </div>
         </div>
-        <div class="tc-route">${esc(t.from)} → ${esc(t.to)}</div>
-        <div class="tc-times">
-          ${chips}
-          <button class="tc-schedule-btn">Розклад рейсів</button>
+        <div class="tc-div"></div>
+        <div class="tc-bottom">
+          <span class="tc-ptype">1 × ${esc(typeDisp)}</span>
         </div>
-        <div class="tc-divider"></div>
-        <div class="tc-passenger">1 × ${typeUA} квиток</div>
         <button class="tc-show-btn" onclick="openDetail(${i})">
-          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/>
-            <rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/>
-          </svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
           Показати квиток
         </button>
       </div>`;
     }).join('');
-    return `<div class="t-date-group"><span class="t-date-label">${esc(label)}</span>${cards}</div>`;
+    return `<div class="t-date-group"><span class="t-date-label">${esc(todayLabel)}</span>${cards}</div>`;
   }).join('');
 
   body.innerHTML = `<div class="t-list">${groupsHTML}</div>`;
@@ -1050,9 +1439,10 @@ function ctxOpen(e, i) { e.preventDefault(); dlgOpen(i); }
 
 /* ── Autocomplete ── */
 const AC_STATIONS = [
-  'Кічеєво','Ірпінь','Буча','Ворзель','Бородянка',
-  'Київ-Пасажирський','Київ-Пас','Клавдієво','Тетерів',
-  'Немішаєве','Гостомель','Луб\'янка','Дитятки'
+  'Кічеєво','Ірпінь','Тетерів','Коростень','Малин',
+  'Святошин','Борщагівка','Клавдієво','Немішаєве',
+  'Київ','Київ-Пасажирський','Буча','Ворзель','Бородянка',
+  'Гостомель','Луб\'янка','Дитятки','Ворзель','Макарів'
 ];
 let _acTimeout = null;
 function acShow(inputId, listId) {
@@ -1105,50 +1495,111 @@ function genBarcode(){
   let n='';for(let i=0;i<24;i++)n+=Math.floor(Math.random()*10);return n;
 }
 
-function openDetail(i) {
-  const t = tickets[i];
+/* ── 3-dots menu in detail ── */
+let _detailIdx = 0;
+function tkMenuToggle() {
+  document.getElementById('tk-menu-overlay').classList.toggle('on');
+}
+function tkMenuClose() {
+  document.getElementById('tk-menu-overlay').classList.remove('on');
+}
+function openReceiptFromDetail() {
+  openReceipt(_detailIdx);
+}
 
-  document.getElementById('tk-datefull').textContent = t.dateFull;
+function openDetail(i) {
+  _detailIdx = i;
+  const t = tickets[i];
+  document.getElementById('tk-datefull').textContent = getTodayFull();
   document.getElementById('tk-route-txt').textContent = t.from + ' → ' + t.to;
   document.getElementById('tk-bc-label').textContent = TYPE_LABEL[t.type] || 'Повний квиток';
   document.getElementById('tk-bc-num').textContent = t.barcode;
+  tkMenuClose();
 
-  const canvas = document.getElementById('tk-bc-canvas');
+  const svg = document.getElementById('tk-bc-svg');
   setTimeout(function() {
     try {
-      JsBarcode(canvas, t.barcode, {
-        format: 'CODE128',
-        width: 2,
-        height: 100,
-        displayValue: false,
-        margin: 0,
-        background: '#ffffff',
-        lineColor: '#000000'
+      JsBarcode(svg, t.barcode, {
+        format: 'CODE128', width: 2, height: 100,
+        displayValue: false, margin: 0,
+        background: '#ffffff', lineColor: '#000000'
       });
-    } catch(e) {
-      // fallback
-      canvas.width = 300; canvas.height = 100;
-      const ctx = canvas.getContext('2d');
-      ctx.fillStyle='#fff';ctx.fillRect(0,0,300,100);
-      ctx.fillStyle='#000';
-      let x=4;
-      while(x<296){const w=Math.random()>.5?1:2;if(Math.random()>.38)ctx.fillRect(x,0,w,100);x+=w+(Math.random()>.5?1:2);}
-    }
+    } catch(e) {}
   }, 60);
 
   document.getElementById('m-detail').classList.add('on');
 }
 
 function closeDetail() {
+  tkMenuClose();
   document.getElementById('m-detail').classList.remove('on');
 }
 
+/* ── Train list picker ── */
+let _selectedTrain = null;
+
+function updateTrainList() {
+  const from = document.getElementById('nf').value.trim();
+  const to   = document.getElementById('nt').value.trim();
+  const wrap = document.getElementById('cf-train');
+  const list = document.getElementById('train-list');
+  if (!from) { wrap.style.display='none'; _selectedTrain=null; return; }
+
+  const norm = s => s.toLowerCase().trim().replace(/[-\s]пас.*$/,'');
+  const qf = norm(from);
+  const qt = norm(to);
+
+  // Show all trains departing from Кічеєво (or matching from station)
+  const matching = TRAINS.filter(tr => {
+    const tf = norm(tr.from);
+    const tt = norm(tr.to);
+    const fromMatch = qf.includes('кічеєво') || 'кічеєво'.includes(qf)
+      || tf.includes(qf) || qf.includes(tf);
+    const toMatch   = !qt || tt.includes(qt) || qt.includes(tt) || qt.includes('ірпінь') || qt.includes('київ') || qt.includes('борщаг') || qt.includes('святош');
+    return fromMatch && toMatch;
+  });
+
+  if (!matching.length) { wrap.style.display='none'; _selectedTrain=null; return; }
+  wrap.style.display = 'block';
+
+  // Sort by kDep time
+  const sorted = [...matching].sort((a,b) => toMin(a.kDep) - toMin(b.kDep));
+
+  list.innerHTML = sorted.map((tr, idx) =>
+    `<div class="train-item${idx===0?' sel':''}"
+      onclick="selectTrain(this,'${tr.num}','${tr.note||''}','${tr.kDep}','${tr.iArr}','${tr.to}')">
+      <span class="ti-time">${tr.kDep}</span>
+      <span class="ti-num">${tr.num}${tr.note||''}</span>
+      <span class="ti-dest">→ ${tr.to}</span>
+      <span class="ti-arr">${tr.iArr}</span>
+    </div>`
+  ).join('');
+
+  // Auto-select first
+  const first = sorted[0];
+  _selectedTrain = {num: first.num+(first.note||''), dep: first.kDep, arr: first.iArr, dest: first.to};
+}
+
+function selectTrain(el, num, note, dep, arr, dest) {
+  document.querySelectorAll('.train-item').forEach(e => e.classList.remove('sel'));
+  el.classList.add('sel');
+  _selectedTrain = {num: num+(note||''), dep, arr, dest};
+  // Auto-fill destination if empty
+  const nt = document.getElementById('nt');
+  if (!nt.value.trim()) nt.value = dest;
+}
+
 function openCreate() {
-  const t = new Date();
-  const y = t.getFullYear(), m = String(t.getMonth()+1).padStart(2,'0'), d2 = String(t.getDate()).padStart(2,'0');
-  document.getElementById('nd').value = y+'-'+m+'-'+d2;
+  document.getElementById('nf').value = '';
+  document.getElementById('nt').value = '';
+  document.getElementById('cf-train').style.display = 'none';
+  document.getElementById('train-list').innerHTML = '';
+  _selectedTrain = null;
+  document.querySelectorAll('.type-card').forEach(c => c.classList.remove('sel'));
+  document.querySelector('.type-card[data-type="Повний"]').classList.add('sel');
   document.getElementById('m-create').classList.add('on');
 }
+
 function bgClose(e) {
   if (e.target === document.getElementById('m-create')) closeCreateModal();
 }
@@ -1157,29 +1608,137 @@ function closeCreateModal() {
 }
 
 function doCreate() {
-  const from  = document.getElementById('nf').value.trim() || 'Ірпінь';
-  const to    = document.getElementById('nt').value.trim() || 'Бородянка';
-  const dv    = document.getElementById('nd').value;
+  const from = document.getElementById('nf').value.trim() || 'Кічеєво';
+  const to   = _selectedTrain ? _selectedTrain.dest : (document.getElementById('nt').value.trim() || 'Ірпінь');
   const selCard = document.querySelector('.type-card.sel');
-  const type  = selCard ? selCard.dataset.type : 'Повний';
+  const type    = selCard ? selCard.dataset.type : 'Повний';
+  const price   = selCard ? selCard.dataset.price : '7.50';
 
-  const parts = dv ? dv.split('-') : [new Date().getFullYear(), new Date().getMonth()+1, new Date().getDate()];
-  const d = new Date(parseInt(parts[0]), parseInt(parts[1])-1, parseInt(parts[2]));
-  const MON_CAP = ['Січня','Лютого','Березня','Квітня','Травня','Червня','Липня','Серпня','Вересня','Жовтня','Листопада','Грудня'];
-  const dateDisp = d.getDate() + ' ' + MON[d.getMonth()] + ' ' + d.getFullYear();
-  const dateFull = d.getDate() + ' ' + MON_CAP[d.getMonth()] + ', ' + DAY_CAP[d.getDay()];
+  const trainNum = _selectedTrain ? _selectedTrain.num : '';
+  const depTime  = _selectedTrain ? _selectedTrain.dep : '';
+  const arrTime  = _selectedTrain ? _selectedTrain.arr : '';
 
-  const scheduleTimes = getNextTimes(from, to);
-  tickets.push({ from, to, type, dateDisp, dateFull, barcode: genBarcode(), scheduleTimes });
+  const todayFull = getTodayFull();
+  tickets.push({
+    from, to, type, price,
+    trainNum, depTime, arrTime,
+    dateDisp: getTodayDisp(), dateFull: todayFull,
+    barcode: genBarcode()
+  });
   saveTickets();
-
-  document.getElementById('nf').value = '';
-  document.getElementById('nt').value = '';
-  document.querySelectorAll('.type-card').forEach(c => c.classList.remove('sel'));
-  document.querySelector('.type-card[data-type="Повний"]').classList.add('sel');
-
   closeCreateModal();
   goTo('tickets', 1);
+}
+
+/* ── Fiscal receipt modal ── */
+function openReceipt(i) {
+  const t = tickets[i];
+  const d = new Date();
+  const dd = String(d.getDate()).padStart(2,'0');
+  const mm = String(d.getMonth()+1).padStart(2,'0');
+  const yy = d.getFullYear();
+  const hh = String(d.getHours()).padStart(2,'0');
+  const mn = String(d.getMinutes()).padStart(2,'0');
+  const ss = String(d.getSeconds()).padStart(2,'0');
+  const dateStr = `${dd}.${mm}.${yy}`;
+  const timeStr = `${hh}:${mn}:${ss}`;
+
+  const tickNum = t.barcode ? t.barcode.slice(0,7) : String(Math.floor(Math.random()*9999999)).padStart(7,'0');
+  const kx = 'КХ' + String(Math.floor(Math.random()*99999999)).padStart(8,'0');
+  const epz = '******' + Math.floor(1000+Math.random()*9000);
+  const authCode = Math.random().toString(36).slice(2,8).toUpperCase();
+  const trans = String(Math.floor(1000000000+Math.random()*9000000000));
+
+  const price = parseFloat(t.price||'7.5');
+  const pdvA  = (price/1.2*0.2).toFixed(2);
+  const tarif = (price/1.2).toFixed(2);
+
+  const typeMap = {Повний:'ПОВНИЙ',Дитячий:'ДИТЯЧИЙ 50%',Студентський:'СТУД 50%',Пільговий:'ПІЛЬГОВИЙ 50%'};
+
+  document.getElementById('rc-tnum').textContent    = 'КВИТОК ' + tickNum;
+  document.getElementById('rc-type-lbl').textContent= typeMap[t.type]||'ПОВНИЙ';
+  document.getElementById('rc-kx').textContent      = kx;
+  document.getElementById('rc-from-val').textContent= (t.from||'').toUpperCase();
+  document.getElementById('rc-to-val').textContent  = (t.to||'').toUpperCase();
+  document.getElementById('rc-date-val').textContent= dateStr;
+  document.getElementById('rc-tarif').textContent   = tarif + ' ГРН';
+  document.getElementById('rc-suma').innerHTML      = '<b>' + price.toFixed(1) + ' ГРН</b>';
+  document.getElementById('rc-pdv-a').textContent   = pdvA + ' ГРН';
+  document.getElementById('rc-sum2').textContent    = price.toFixed(1) + ' ГРН';
+  document.getElementById('rc-epz').textContent     = epz;
+  document.getElementById('rc-auth').textContent    = authCode;
+  document.getElementById('rc-trans').textContent   = trans;
+  document.getElementById('rc-chek').textContent    = tickNum + '  ' + yy+'-'+mm+'-'+dd+' '+timeStr;
+
+  const bcVal = t.barcode || (tickNum + '0000000000000000');
+
+  // Draw QR fiscal + barcode
+  setTimeout(() => {
+    // Real QR fiscal code using QRCode.js
+    const qrWrap = document.getElementById('rc-qr-canvas');
+    qrWrap.innerHTML = '';
+    try {
+      new QRCode(qrWrap, {
+        text: bcVal,
+        width: 120, height: 120,
+        colorDark: '#000000', colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      // Remove default border/padding QRCode.js adds
+      const img = qrWrap.querySelector('img');
+      if (img) { img.style.cssText = 'width:120px;height:120px;display:block'; }
+    } catch(e) {
+      drawFakeQR('rc-qr-canvas', 120);
+    }
+
+    // Barcode
+    try {
+      JsBarcode('#rc-bc-svg', bcVal.slice(0,22), {
+        format:'CODE128', width:2.2, height:82,
+        displayValue:false, margin:10,
+        background:'#ffffff', lineColor:'#000000'
+      });
+    } catch(e) {}
+
+    // Залізна Родина QR
+    const zrWrap = document.getElementById('rc-zr-qr');
+    zrWrap.innerHTML = '';
+    try {
+      new QRCode(zrWrap, {
+        text: 'https://zalizna-rodyna.uz.gov.ua',
+        width: 90, height: 90,
+        colorDark: '#000000', colorLight: '#ffffff',
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      const img2 = zrWrap.querySelector('img');
+      if (img2) { img2.style.cssText = 'width:90px;height:90px;display:block'; }
+    } catch(e) {
+      drawFakeQR('rc-zr-qr', 90);
+    }
+  }, 80);
+
+  document.getElementById('m-receipt').classList.add('on');
+}
+
+function drawFakeQR(id, size) {
+  // Fallback: draw QR-like pattern using inline SVG into a div
+  const el = document.getElementById(id);
+  if (!el) return;
+  const cells = 21;
+  const cell = size / cells;
+  let rects = '';
+  for (let r=0;r<cells;r++) for (let col=0;col<cells;col++) {
+    const inCorner = (r<7&&col<7)||(r<7&&col>=cells-7)||(r>=cells-7&&col<7);
+    const onBorder = inCorner && (r===0||r===6||col===0||col===6||(r>0&&r<6&&(col===1||col===5))||(col>0&&col<6&&(r===1||r===5)));
+    const inFinder = inCorner && !onBorder && r>=2&&r<=4&&col>=2&&col<=4;
+    if (onBorder||inFinder) { rects+=`<rect x="${col*cell}" y="${r*cell}" width="${cell}" height="${cell}" fill="#000"/>`; continue; }
+    if (!inCorner && (r+col+r*col)%3===0) rects+=`<rect x="${col*cell}" y="${r*cell}" width="${cell}" height="${cell}" fill="#000"/>`;
+  }
+  el.innerHTML = `<svg width="${size}" height="${size}" viewBox="0 0 ${size} ${size}" style="background:#fff;display:block">${rects}</svg>`;
+}
+
+function closeReceipt() {
+  document.getElementById('m-receipt').classList.remove('on');
 }
 
 renderTickets();
